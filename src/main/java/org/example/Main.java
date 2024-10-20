@@ -19,7 +19,5 @@ public class Main {
         asd.click();
         System.out.println(asd2);
         //driver.quit();
-
-
         }
     }
