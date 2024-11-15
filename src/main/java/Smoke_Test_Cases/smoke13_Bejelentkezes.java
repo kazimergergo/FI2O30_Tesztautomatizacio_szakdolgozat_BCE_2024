@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +44,7 @@ public class smoke13_Bejelentkezes {
                 try {
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"my-account-action-login\"]"))).click();
                     System.out.println("Bejelentkezés - Passed");
-                    Smoke.incrementHelyes();
+                    Smoke_Test_Cycle.incrementHelyes();
                 } catch (Exception e) {
                     System.out.println("Bejelentkezés - Failed");
                 };

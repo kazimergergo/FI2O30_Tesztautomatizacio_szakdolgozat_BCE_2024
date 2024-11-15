@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class smoke11_Keresosav {
+public class smoke10_Ugyfelszolgalat {
 
             public static void main() {
                 WebDriver driver = new ChromeDriver();
@@ -26,18 +27,17 @@ public class smoke11_Keresosav {
                 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class=\"gdpr-cookie-layer__btn gdpr-cookie-layer__btn--submit gdpr-cookie-layer__btn--submit--all\"]"))).click();
 
 
-                //Keresősávban televízió megadása és keresés
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"search-phrase\"]"))).sendKeys("Televízió");
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"site-search-submit\"]"))).click();
+                // Gomb megnyomása
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[3]/div[3]/nav/a[6]"))).click();
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//h2[text()]/a")).getText().contains("tv")) {
-                    System.out.println("Keresősáv - Passed");
-                    Smoke.incrementHelyes();
+                if (driver.findElement(By.xpath("//span[@class=\"ms-widget-search__title ms-text--large\"]")).getText().contains("Miben tudunk segíteni?")) {
+                    System.out.println("Ügyfélszolgálat - Passed");
+                    Smoke_Test_Cycle.incrementHelyes();
                 }
                 else {
-                    System.out.println("Keresősáv - Failed");
+                    System.out.println("Ügyfélszolgálat - Failed");
                 }
 
                 //Chrome bezárása

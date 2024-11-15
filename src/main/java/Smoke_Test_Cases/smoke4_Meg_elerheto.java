@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class smoke9_Cegeknek {
+public class smoke4_Meg_elerheto {
 
             public static void main() {
                 WebDriver driver = new ChromeDriver();
@@ -27,16 +28,16 @@ public class smoke9_Cegeknek {
 
 
                 // Gomb megnyomása
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[3]/div[3]/nav/a[5]"))).click();
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"menu-for-four\"]/a[4]"))).click();
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//*[@id=\"header-btn\"]/a[1]")).getText().contains("Ajánlatkérés")) {
-                    System.out.println("Cégeknek - Passed");
-                    Smoke.incrementHelyes();
+                if (driver.findElement(By.xpath("//*[@id=\"category\"]/hgroup/h1")).getText().contains("Még elérhető")) {
+                    System.out.println("Még elérhető - Passed");
+                    Smoke_Test_Cycle.incrementHelyes();
                 }
                 else {
-                    System.out.println("Cégeknek - Failed");
+                    System.out.println("Még elérhető - Failed");
                 }
 
                 //Chrome bezárása

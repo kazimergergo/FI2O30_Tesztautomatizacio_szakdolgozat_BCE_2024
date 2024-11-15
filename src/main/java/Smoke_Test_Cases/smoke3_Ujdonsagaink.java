@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class smoke10_Ugyfelszolgalat {
+public class smoke3_Ujdonsagaink {
 
             public static void main() {
                 WebDriver driver = new ChromeDriver();
@@ -26,17 +27,17 @@ public class smoke10_Ugyfelszolgalat {
                 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class=\"gdpr-cookie-layer__btn gdpr-cookie-layer__btn--submit gdpr-cookie-layer__btn--submit--all\"]"))).click();
 
 
-                // Gomb megnyomása
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[3]/div[3]/nav/a[6]"))).click();
+                //Gomb megnyomása
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"menu-for-four\"]/a[3]"))).click();
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//span[@class=\"ms-widget-search__title ms-text--large\"]")).getText().contains("Miben tudunk segíteni?")) {
-                    System.out.println("Ügyfélszolgálat - Passed");
-                    Smoke.incrementHelyes();
+                if (driver.findElement(By.xpath("//*[@id=\"category\"]/hgroup/h1")).getText().contains("Újdonságaink")) {
+                    System.out.println("Újdonságaink - Passed");
+                    Smoke_Test_Cycle.incrementHelyes();
                 }
                 else {
-                    System.out.println("Ügyfélszolgálat - Failed");
+                    System.out.println("Újdonságaink - Failed");
                 }
 
                 //Chrome bezárása

@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class smoke2_Toplista {
+public class smoke11_Keresosav {
 
             public static void main() {
                 WebDriver driver = new ChromeDriver();
@@ -26,17 +27,18 @@ public class smoke2_Toplista {
                 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class=\"gdpr-cookie-layer__btn gdpr-cookie-layer__btn--submit gdpr-cookie-layer__btn--submit--all\"]"))).click();
 
 
-                // Toplista gomb megnyomása
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"menu-for-four\"]/a[2]"))).click();
+                //Keresősávban televízió megadása és keresés
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"search-phrase\"]"))).sendKeys("Televízió");
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"site-search-submit\"]"))).click();
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//*[@id=\"category\"]/hgroup/h1")).getText().contains("Toplista")) {
-                    System.out.println("Toplista - Passed");
-                    Smoke.incrementHelyes();
+                if (driver.findElement(By.xpath("//h2[text()]/a")).getText().contains("tv")) {
+                    System.out.println("Keresősáv - Passed");
+                    Smoke_Test_Cycle.incrementHelyes();
                 }
                 else {
-                    System.out.println("Toplista - Failed");
+                    System.out.println("Keresősáv - Failed");
                 }
 
                 //Chrome bezárása

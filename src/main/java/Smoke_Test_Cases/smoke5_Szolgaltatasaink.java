@@ -1,5 +1,6 @@
-package org.example;
+package Smoke_Test_Cases;
 
+import Test_Executions.Smoke_Test_Cycle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class smoke7_Aruhitel {
+public class smoke5_Szolgaltatasaink {
 
             public static void main() {
                 WebDriver driver = new ChromeDriver();
@@ -27,16 +28,16 @@ public class smoke7_Aruhitel {
 
 
                 // Gomb megnyomása
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[3]/div[3]/nav/a[3]"))).click();
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[3]/div[3]/nav/a[1]"))).click();
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/table/tbody/tr[2]/td[1]/h1")).getText().contains("Online hiteligénylés")) {
-                    System.out.println("Áruhitel - Passed");
-                    Smoke.incrementHelyes();
+                if (driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/a[1]/b")).getText().contains("Garancia Plusz")) {
+                    System.out.println("Szolgáltatásaink - Passed");
+                    Smoke_Test_Cycle.incrementHelyes();
                 }
                 else {
-                    System.out.println("Áruhitel - Failed");
+                    System.out.println("Szolgáltatásaink - Failed");
                 }
 
                 //Chrome bezárása

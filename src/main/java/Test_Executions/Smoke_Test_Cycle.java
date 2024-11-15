@@ -1,11 +1,13 @@
-package org.example;
+package Test_Executions;
+
+import Smoke_Test_Cases.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Smoke {
+public class Smoke_Test_Cycle {
     private static int helyes=0;
 
 

@@ -1,7 +1,5 @@
-package org.example;
-import dev.failsafe.internal.util.Assert;
+package Test_Executions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,12 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-import java.io.Console;
 import java.time.Duration;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class Customer_Process_Test_Case {
     public static void main(String[] args)
     {
 
@@ -23,6 +20,7 @@ public class Main {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         long timer= System.currentTimeMillis();
+        String userPassword = System.getenv("MM_user_password");
         System.out.println("Test Started\n ------------------------------------\n");
 
         //Weblap megnyitása
@@ -49,7 +47,7 @@ public class Main {
 
         //Email és jelszó megadása
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys("BCE.KazimerGergely.Szakdolgozat@gmail.com");
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys("Corvinus2024");
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys(userPassword);
         System.out.println("Email és jelszó megadása - Passed");
 
         // Belépés gomb megnyomása
