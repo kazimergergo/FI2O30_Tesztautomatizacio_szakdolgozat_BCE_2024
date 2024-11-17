@@ -31,6 +31,6 @@ jobs:
     - name: Build and Run Java
       run: |
         javac -d out -cp "resources/*" src/main/java/**/*.java # Fordítás
-        java -cp out Main # Futtatás
+        java -cp "resources/*:out" Main # Futtatás
       env:
         MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
