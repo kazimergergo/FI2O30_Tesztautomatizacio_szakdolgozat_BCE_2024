@@ -1,0 +1,36 @@
+name: Java Build and Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Kód klónozása
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Java környezet beállítása
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin' # Az OpenJDK disztribúció
+        java-version: '17' # Válaszd a projektedhez illeszkedő verziót
+
+    # Secret beállítása környezeti változóként
+    - name: Set up secret key
+      run: echo "MY_SECRET_KEY=$MY_SECRET_KEY" >> $GITHUB_ENV
+      env:
+        MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+
+    # Build és futtatás
+    - name: Build and Run Java
+      run: |
+        javac -d out src/*.java # Fordítás
+        java -cp out Main # Futtatás
+      env:
+        MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
