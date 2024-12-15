@@ -37,13 +37,6 @@ public class Customer_Process_Test_Case {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header\"]/header/div[1]/div/div[4]/nav/div/div/ul/li[1]/a"))).click();
         System.out.println("Belépés opció kiválasztása fent - Passed");
 
-        //TESZT JELLEGGEL
-        //System.out.println(driver.findElement(By.xpath("//*[@id=\"login-form\"]/h1")).getText());
-        //if ((driver.findElement(By.xpath("//*[@id=\"login-form\"]/h1"))).getText() != "BELÉPÉS REGISZTRÁLT VÁSÁRLÓK SZÁMÁRA" ) {
-        //    driver.quit();
-        //}
-
-
         //Email és jelszó megadása
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys(User_info.email_address);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys(User_info.password);
