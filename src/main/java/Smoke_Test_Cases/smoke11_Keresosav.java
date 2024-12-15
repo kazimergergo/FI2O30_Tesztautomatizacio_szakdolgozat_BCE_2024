@@ -33,7 +33,7 @@ public class smoke11_Keresosav {
 
 
                 //validálás
-                if (driver.findElement(By.xpath("//h2[text()]/a")).getText().contains("tv")) {
+                if (driver.findElement(By.xpath("//h2[text()]/a")).getText().contains("TV")) {
                     System.out.println("Keresősáv - Passed");
                     Smoke_Test_Cycle.incrementHelyes();
                 }

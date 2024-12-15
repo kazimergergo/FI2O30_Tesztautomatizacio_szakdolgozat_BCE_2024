@@ -1,6 +1,7 @@
 package Smoke_Test_Cases;
 
 import Test_Executions.Smoke_Test_Cycle;
+import Test_Executions.User_info;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -36,8 +37,8 @@ public class smoke13_Bejelentkezes {
 
 
                 //Email és jelszó megadása
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys("BCE.KazimerGergely.Szakdolgozat@gmail.com");
-                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys("Corvinus2024");
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys(User_info.email_address);
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys(User_info.password);
 
 
                 // Belépés gomb megnyomása, validálás

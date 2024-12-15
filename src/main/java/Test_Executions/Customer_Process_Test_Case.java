@@ -20,7 +20,6 @@ public class Customer_Process_Test_Case {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         long timer= System.currentTimeMillis();
-        String userPassword = System.getenv("MM_user_password");
         System.out.println("Test Started\n ------------------------------------\n");
 
         //Weblap megnyitása
@@ -46,8 +45,8 @@ public class Customer_Process_Test_Case {
 
 
         //Email és jelszó megadása
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys("BCE.KazimerGergely.Szakdolgozat@gmail.com");
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys(userPassword);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-email\"]"))).sendKeys(User_info.email_address);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login-password\"]"))).sendKeys(User_info.password);
         System.out.println("Email és jelszó megadása - Passed");
 
         // Belépés gomb megnyomása
